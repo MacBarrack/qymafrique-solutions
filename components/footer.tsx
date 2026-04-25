@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Mail, MapPin, MessageCircle, ArrowUpRight } from "lucide-react"
+import { Mail, MapPin, MessageCircle, ArrowUpRight, Zap } from "lucide-react"
 
 const nav = [
   { href: "/portfolio", label: "Work" },
@@ -9,15 +9,22 @@ const nav = [
   { href: "/quote",     label: "Get a Quote" },
 ]
 
-const services = ["Web Development", "Mobile Apps", "E-Commerce", "Branding", "Digital Marketing"]
+const services = [
+  "Web Development",
+  "Mobile Apps",
+  "E-Commerce",
+  "Branding",
+  "Digital Marketing",
+]
 
 export function Footer() {
   return (
     <footer className="bg-gray-950 text-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
 
+          {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <span className="text-xl font-black text-white">Qymafrique</span>
@@ -25,7 +32,7 @@ export function Footer() {
               <span className="text-sm text-gray-500 font-medium">Solutions</span>
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
-              Crafting digital experiences that drive growth for businesses across Africa and beyond.
+              Crafting digital products that perform — clean code, sharp design, real results.
             </p>
             <div className="mt-5 flex items-center gap-2">
               <span className="flex h-2 w-2 relative">
@@ -36,6 +43,7 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Navigate */}
           <div>
             <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">Navigate</p>
             <ul className="space-y-2.5">
@@ -55,6 +63,7 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Services */}
           <div>
             <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">Services</p>
             <ul className="space-y-2.5">
@@ -64,6 +73,7 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
             <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">Contact</p>
             <ul className="space-y-3">
@@ -92,9 +102,16 @@ export function Footer() {
                 Nairobi, Kenya
               </li>
             </ul>
+
+            {/* Quote CTA */}
+            <Link href="/quote" className="mt-6 inline-flex items-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-xl transition-colors">
+              <Zap className="w-3 h-3" />
+              Start a Project
+            </Link>
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-600">
             © {new Date().getFullYear()} Qymafrique Solutions. All rights reserved.
@@ -104,6 +121,7 @@ export function Footer() {
             <a href="#" className="text-xs text-gray-600 hover:text-gray-400 transition-colors">Terms of Service</a>
           </div>
         </div>
+
       </div>
     </footer>
   )

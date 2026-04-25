@@ -37,7 +37,9 @@ export function Header() {
 
             {/* Logo */}
             <Link href="/" className="shrink-0">
-              <QLogo className="brightness-0 invert" />
+              <span className="brightness-0 invert block">
+                <QLogo />
+              </span>
             </Link>
 
             {/* Nav links */}
