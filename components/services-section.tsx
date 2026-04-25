@@ -10,7 +10,7 @@ const services = [
       "Your website is where customers first meet your business. We build fast, intuitive platforms that help people accomplish their goals and keep them coming back.",
     examples: [
       { name: "Weva Technologies", url: "https://www.wevatechnologies.software" },
-      { name: "World Concepts", url: "https://www.worldconcepts.co.ke" },
+      { name: "World Concepts",    url: "https://www.worldconcepts.co.ke" },
     ],
   },
   {
@@ -40,7 +40,7 @@ const services = [
       "The internet is noisy — but your customers are in there. We find them and start conversations that matter through authentic, data-driven strategies.",
     examples: [
       { name: "Otieno Justus & Co", url: "https://justusapp.vercel.app" },
-      { name: "Nitibu Healthcare", url: "https://nitibuhealthcare.com" },
+      { name: "Nitibu Healthcare",  url: "https://nitibuhealthcare.com" },
     ],
   },
   {
@@ -58,7 +58,7 @@ const services = [
     description:
       "Great work starts with great strategy. We don't just make things look good — we make sure they work toward your specific goals.",
     examples: [
-      { name: "World Concepts", url: "https://www.worldconcepts.co.ke" },
+      { name: "World Concepts",    url: "https://www.worldconcepts.co.ke" },
       { name: "Weva Technologies", url: "https://www.wevatechnologies.software" },
     ],
   },
@@ -66,13 +66,13 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-white py-24 md:py-32">
+    <section id="services" className="w-full bg-white py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
             <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Services</span>
-            <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-black text-black leading-tight tracking-tight">
+            <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black leading-tight tracking-tight">
               What We<br />Build
             </h2>
           </div>
@@ -81,22 +81,28 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100 border border-gray-100 rounded-3xl overflow-hidden">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100 border border-gray-100 rounded-3xl overflow-hidden">
           {services.map(({ num, icon: Icon, title, description, examples }) => (
             <div
               key={num}
-              className="group bg-white p-8 hover:bg-gray-950 transition-colors duration-300 flex flex-col gap-6"
+              className="group bg-white p-6 sm:p-8 hover:bg-gray-950 transition-colors duration-300 flex flex-col gap-5"
             >
               <div className="flex items-start justify-between">
-                <span className="text-xs font-bold text-gray-300 group-hover:text-gray-600 transition-colors">{num}</span>
+                <span className="text-xs font-bold text-gray-300 group-hover:text-gray-600 transition-colors">
+                  {num}
+                </span>
                 <div className="w-10 h-10 rounded-2xl bg-gray-50 group-hover:bg-white/10 transition-colors flex items-center justify-center">
                   <Icon className="w-5 h-5 text-blue-600 group-hover:text-blue-400 transition-colors" />
                 </div>
               </div>
 
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-black group-hover:text-white transition-colors mb-3">{title}</h3>
-                <p className="text-sm text-gray-500 group-hover:text-gray-400 leading-relaxed transition-colors">{description}</p>
+                <h3 className="text-base sm:text-lg font-bold text-black group-hover:text-white transition-colors mb-2">
+                  {title}
+                </h3>
+                <p className="text-sm text-gray-500 group-hover:text-gray-400 leading-relaxed transition-colors">
+                  {description}
+                </p>
               </div>
 
               {examples.length > 0 && (

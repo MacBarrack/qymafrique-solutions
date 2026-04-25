@@ -39,17 +39,18 @@ const channels = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="bg-gray-50 py-24 md:py-32">
+    <section id="contact" className="w-full bg-gray-50 py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
+          {/* Left */}
           <div>
             <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Contact</span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
+            <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
               Let's Build<br />Something<br />Together
             </h2>
-            <p className="mt-5 text-gray-500 text-base leading-relaxed max-w-sm">
+            <p className="mt-4 text-gray-500 text-sm sm:text-base leading-relaxed max-w-sm">
               Have a project in mind? We'd love to hear about it. Reach out and let's make it real.
             </p>
 
@@ -61,7 +62,11 @@ export function ContactSection() {
                       <Icon className="w-4 h-4" />
                     </div>
                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{label}</p>
-                    <p className={`text-xs font-semibold mt-0.5 ${href ? color : "text-gray-700"} leading-tight`}>{value}</p>
+                    <p
+                      className={`text-xs font-semibold mt-0.5 ${href ? color : "text-gray-700"} leading-tight`}
+                    >
+                      {value}
+                    </p>
                   </div>
                 )
                 if (href) {
@@ -81,9 +86,10 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl border border-gray-200 p-8 md:p-10 shadow-sm">
+          {/* Right */}
+          <div className="bg-white rounded-3xl border border-gray-200 p-7 sm:p-10 shadow-sm">
             <h3 className="text-xl font-black text-black mb-2">Ready to Start?</h3>
-            <p className="text-sm text-gray-500 mb-8 leading-relaxed">
+            <p className="text-sm text-gray-500 mb-7 leading-relaxed">
               Whether it's a website, app, or full digital strategy — we're ready to bring your vision to life.
             </p>
 

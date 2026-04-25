@@ -55,12 +55,12 @@ const projects = [
 
 export function ProjectsGrid() {
   return (
-    <section id="work" className="bg-white py-24 md:py-32">
+    <section id="work" className="w-full bg-white py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="mb-14">
+        <div className="mb-12">
           <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Selected Work</span>
-          <h2 className="mt-3 text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
+          <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
             Recent Projects
           </h2>
           <p className="mt-4 text-gray-500 max-w-lg text-sm leading-relaxed">
@@ -68,7 +68,7 @@ export function ProjectsGrid() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {projects.map(project => (
             <ProjectCard key={project.id} project={project} />
           ))}

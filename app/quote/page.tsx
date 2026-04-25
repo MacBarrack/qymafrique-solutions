@@ -14,7 +14,7 @@ export default function QuotePage() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
 
-      <main className="flex-grow pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <main className="flex-grow pt-20 md:pt-24 pb-36 md:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
 
           {/* Back link */}
@@ -32,10 +32,10 @@ export default function QuotePage() {
               <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />
               Project Quote
             </div>
-            <h1 className="text-3xl sm:text-4xl font-black text-black tracking-tight mb-3">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight mb-3">
               Get Your Custom Quote
             </h1>
-            <p className="text-base text-gray-500 leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
               Tell us about your project and we'll send a detailed quote promptly.
             </p>
           </div>
