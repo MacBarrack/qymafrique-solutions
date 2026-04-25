@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowRight, Zap } from "lucide-react"
 
-const phrases = ["That Convert", "That Scale", "That Stand Out", "That Last", "That Matter"]
+const phrases = ["Websites.", "Platforms.", "Systems.", "Experiences.", "Solutions."]
 
 const clients = [
   { name: "Nitibu Healthcare",  dot: "bg-blue-600" },
@@ -88,7 +88,7 @@ export function HeroNew() {
 
               <div className="mt-6">
                 <p className="text-base text-gray-500 max-w-sm leading-relaxed mb-6">
-                  Enterprise-grade web, mobile, and digital solutions built for African businesses and beyond.
+                  Enterprise-grade web, mobile, and digital solutions built for businesses that mean business.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -190,23 +190,14 @@ export function HeroNew() {
 
               {/* Response time card */}
               <div className="bg-blue-600 rounded-3xl p-6 shadow-sm">
-                <p className="text-white text-xs font-bold mb-1">Response time</p>
-                <p className="text-blue-200 text-[10px]">We reply within 24 hours</p>
-                <p className="text-white font-black text-3xl mt-2">&lt; 24h</p>
+                <p className="text-blue-200 text-[10px] uppercase tracking-widest mb-1">We respond</p>
+                <p className="text-white font-black text-3xl">Instantly.</p>
               </div>
 
             </div>
           </div>
 
-          {/* ── TECH BAR — its own card ── */}
-          <div className="mt-3 bg-white border border-gray-200 rounded-2xl px-8 py-4 shadow-sm">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="text-[11px] text-gray-400 font-medium uppercase tracking-wider">Built with</span>
-              {["Next.js", "React", "TypeScript", "Tailwind", "Node.js", "MongoDB"].map(t => (
-                <span key={t} className="text-[11px] font-semibold text-gray-700">{t}</span>
-              ))}
-            </div>
-          </div>
+
 
         </div>
       </div>
