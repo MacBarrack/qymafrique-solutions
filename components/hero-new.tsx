@@ -13,15 +13,15 @@ const clients = [
 ]
 
 const projects = [
-  { name: "Otieno Justus & Co Advocates", category: "Legal Services",     url: "https://www.otienojustuscoadvocates.com/", color: "bg-violet-600" },
-  { name: "Twin Compass Tours",            category: "Travel & Tourism",   url: "https://www.twincompasstours.com/",         color: "bg-emerald-600" },
-  { name: "Le Jardin de Den Daycare",      category: "Education",          url: "https://www.lejardindedendaycare.com/",     color: "bg-pink-600" },
-  { name: "Africa Sojourners of Hope",     category: "Non-Profit",         url: "https://www.africasojournersofhope.org/",   color: "bg-amber-600" },
-  { name: "Evuptiki",                      category: "In-House · Events",  url: "https://evuptiki.vercel.app/",              color: "bg-indigo-600" },
-  { name: "Nitibu Healthcare",             category: "Healthcare",         url: "https://www.nitibuhealthcare.com/",         color: "bg-blue-600" },
-  { name: "World Concepts Ventures",       category: "Investment",         url: "https://www.worldconcepts.co.ke/",          color: "bg-yellow-600" },
-  { name: "EMS-GS",                        category: "Enterprise System",  url: "https://ems-gs.vercel.app/",                color: "bg-purple-600" },
-  { name: "QuickCart",                     category: "E-Commerce",         url: "https://quickcart.greatstack.in/",          color: "bg-red-600" },
+  { name: "Otieno Justus & Co Advocates", category: "Legal Services",    url: "https://www.otienojustuscoadvocates.com/", color: "bg-violet-600" },
+  { name: "Twin Compass Tours",           category: "Travel & Tourism",  url: "https://www.twincompasstours.com/",         color: "bg-emerald-600" },
+  { name: "Le Jardin de Den Daycare",     category: "Education",         url: "https://www.lejardindedendaycare.com/",     color: "bg-pink-600" },
+  { name: "Africa Sojourners of Hope",    category: "Non-Profit",        url: "https://www.africasojournersofhope.org/",   color: "bg-amber-600" },
+  { name: "Evuptiki",                     category: "In-House · Events", url: "https://evuptiki.vercel.app/",              color: "bg-indigo-600" },
+  { name: "Nitibu Healthcare",            category: "Healthcare",        url: "https://www.nitibuhealthcare.com/",         color: "bg-blue-600" },
+  { name: "World Concepts Ventures",      category: "Investment",        url: "https://www.worldconcepts.co.ke/",          color: "bg-yellow-600" },
+  { name: "EMS-GS",                       category: "Enterprise System", url: "https://ems-gs.vercel.app/",                color: "bg-purple-600" },
+  { name: "QuickCart",                    category: "E-Commerce",        url: "https://quickcart.greatstack.in/",          color: "bg-red-600" },
 ]
 
 export function HeroNew() {
@@ -52,17 +52,26 @@ export function HeroNew() {
   }
 
   return (
-    <section className="min-h-screen bg-gray-50 flex items-center pt-20 pb-16 px-4 overflow-hidden">
+    /*
+      Full-width section that starts at the very top of the viewport.
+      On desktop: header is a fixed pill at top, so we pad pt-24 (96px) to clear it.
+      On mobile:  header is fixed at bottom, so NO top padding needed — content starts at top.
+                  We add pb-36 at bottom to clear the mobile nav bar.
+    */
+    <section className="w-full min-h-screen bg-gray-50 flex items-center pt-6 pb-36 md:pt-24 md:pb-16 px-4 overflow-hidden">
       <div className="w-full max-w-5xl mx-auto">
-        <div className={`transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-
-          {/* ── TWO CARDS ── */}
+        <div
+          className={`transition-all duration-700 ease-out ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          {/* TWO CARDS */}
           <div className="flex flex-col lg:flex-row gap-3">
 
-            {/* ── CARD 1 — Hero content ── */}
-            <div className="flex-1 bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm">
+            {/* CARD 1 — Hero content */}
+            <div className="flex-1 bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm min-h-[420px] sm:min-h-[480px]">
               <div>
-                <h1 className="text-4xl sm:text-5xl font-black text-black leading-[1.0] tracking-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-black leading-[1.0] tracking-tight">
                   We Build
                   <br />
                   <span className="text-blue-600">Digital</span>
@@ -87,20 +96,20 @@ export function HeroNew() {
               </div>
 
               <div className="mt-6">
-                <p className="text-base text-gray-500 max-w-sm leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-gray-500 max-w-sm leading-relaxed mb-6">
                   Enterprise-grade web, mobile, and digital solutions built for businesses that mean business.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 mb-6">
                   <Link href="/quote">
-                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-black hover:bg-gray-900 text-white text-sm font-bold rounded-2xl transition-colors">
+                    <span className="inline-flex items-center gap-2 px-5 py-3 bg-black hover:bg-gray-900 text-white text-sm font-bold rounded-2xl transition-colors">
                       <Zap className="w-4 h-4" />
                       Start a Project
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </Link>
                   <Link href="/portfolio">
-                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-black text-sm font-semibold border border-gray-200 rounded-2xl transition-colors">
+                    <span className="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-gray-50 text-black text-sm font-semibold border border-gray-200 rounded-2xl transition-colors">
                       See Our Work
                     </span>
                   </Link>
@@ -109,7 +118,10 @@ export function HeroNew() {
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-1.5">
                     {clients.map(({ name, dot }) => (
-                      <div key={name} className={`w-7 h-7 rounded-full border-2 border-white ${dot} flex items-center justify-center`}>
+                      <div
+                        key={name}
+                        className={`w-7 h-7 rounded-full border-2 border-white ${dot} flex items-center justify-center`}
+                      >
                         <span className="text-[8px] font-black text-white">{name[0]}</span>
                       </div>
                     ))}
@@ -121,20 +133,26 @@ export function HeroNew() {
               </div>
             </div>
 
-            {/* ── CARD 2 — Right panel ── */}
+            {/* CARD 2 — Right panel */}
             <div className="lg:w-64 flex flex-col gap-3">
 
               {/* Project live card */}
-              <div className="bg-gray-950 border border-white/5 rounded-3xl p-6 relative overflow-hidden shadow-sm flex-1">
+              <div className="bg-gray-950 border border-white/5 rounded-3xl p-6 relative overflow-hidden shadow-sm flex-1 min-h-[240px]">
                 <div className="absolute top-4 left-4 w-28 h-28 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
                 <div className="absolute bottom-4 right-4 w-20 h-20 rounded-full bg-blue-400/10 blur-2xl pointer-events-none" />
 
                 <div
                   className="relative z-10"
-                  style={{ transition: "opacity 0.3s, transform 0.3s", opacity: fade ? 1 : 0, transform: fade ? "translateY(0)" : "translateY(6px)" }}
+                  style={{
+                    transition: "opacity 0.3s, transform 0.3s",
+                    opacity: fade ? 1 : 0,
+                    transform: fade ? "translateY(0)" : "translateY(6px)",
+                  }}
                 >
                   <div className="flex items-center gap-2 mb-5">
-                    <div className={`w-8 h-8 rounded-xl ${current.color} flex items-center justify-center flex-shrink-0`}>
+                    <div
+                      className={`w-8 h-8 rounded-xl ${current.color} flex items-center justify-center flex-shrink-0`}
+                    >
                       <span className="text-[10px] font-black text-white">{current.name[0]}</span>
                     </div>
                     <div className="min-w-0 flex-1">
@@ -171,13 +189,15 @@ export function HeroNew() {
 
                 {/* Progress dots */}
                 <div className="relative z-10 flex items-center justify-between mt-6">
-                  <div className="flex gap-1">
+                  <div className="flex gap-1 flex-wrap">
                     {projects.map((_, i) => (
                       <button
                         key={i}
                         onClick={() => jumpTo(i)}
                         className={`rounded-full transition-all duration-300 ${
-                          i === project ? "w-4 h-1.5 bg-white" : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
+                          i === project
+                            ? "w-4 h-1.5 bg-white"
+                            : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
                         }`}
                       />
                     ))}
@@ -193,12 +213,8 @@ export function HeroNew() {
                 <p className="text-blue-200 text-[10px] uppercase tracking-widest mb-1">We respond</p>
                 <p className="text-white font-black text-3xl">Instantly.</p>
               </div>
-
             </div>
           </div>
-
-
-
         </div>
       </div>
     </section>

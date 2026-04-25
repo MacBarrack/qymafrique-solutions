@@ -4,7 +4,6 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
-import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -22,11 +21,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="bg-white">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased bg-white`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Suspense fallback={null}>{children}</Suspense>
-        </ThemeProvider>
+    <html lang="en" className="bg-white">
+      <body
+        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased bg-white text-gray-900`}
+      >
+        <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>
     </html>

@@ -109,37 +109,38 @@ export function PortfolioCarousel() {
     return () => clearInterval(id)
   }, [paused])
 
-  const visible = [
-    projects[current],
-    projects[(current + 1) % projects.length],
-    projects[(current + 2) % projects.length],
-  ]
-
   const go = (i: number) => {
     setCurrent(i)
     setPaused(true)
     setTimeout(() => setPaused(false), 5000)
   }
 
+  // On mobile show 1, tablet 2, desktop 3
+  const visibleCount = 3
+  const visible = Array.from({ length: visibleCount }, (_, k) =>
+    projects[(current + k) % projects.length]
+  )
+
   return (
-    <section className="bg-gray-950 py-24 md:py-32">
+    <section className="w-full bg-gray-950 py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
           <div>
             <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Featured Projects</span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-black text-white leading-tight tracking-tight">
+            <h2 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight tracking-tight">
               Our Best<br />Work
             </h2>
           </div>
           <Link href="/portfolio">
             <span className="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-white transition-colors">
-              View all projects <ArrowRight className="w-4 h-4" />
+              View all <ArrowRight className="w-4 h-4" />
             </span>
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 mb-10">
+        {/* Cards — 1 col mobile, 2 col tablet, 3 col desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {visible.map((p) => (
             <a
               key={p.id}
@@ -149,7 +150,7 @@ export function PortfolioCarousel() {
               className="group block"
             >
               <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-600 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                <div className="relative h-44 overflow-hidden bg-gray-800">
+                <div className="relative h-44 sm:h-48 overflow-hidden bg-gray-800">
                   {p.noImage ? (
                     <div className={`w-full h-full ${p.accent} flex items-center justify-center`}>
                       <span className="text-4xl font-black text-white">ASOH</span>
@@ -165,26 +166,33 @@ export function PortfolioCarousel() {
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                 </div>
 
-                <div className="p-5 flex flex-col gap-3 flex-1">
+                <div className="p-4 sm:p-5 flex flex-col gap-3 flex-1">
                   <div>
-                    <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold text-white ${p.accent} mb-2`}>
+                    <span
+                      className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold text-white ${p.accent} mb-2`}
+                    >
                       {p.category}
                     </span>
                     <h3 className="text-sm font-bold text-white line-clamp-1 group-hover:text-blue-400 transition-colors">
                       {p.title}
                     </h3>
-                    <p className="text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">{p.description}</p>
+                    <p className="text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">
+                      {p.description}
+                    </p>
                   </div>
 
                   <div className="mt-auto flex items-center justify-between pt-3 border-t border-gray-800">
-                    <div className="flex gap-1.5">
+                    <div className="flex gap-1.5 flex-wrap">
                       {p.tags.slice(0, 2).map(t => (
-                        <span key={t} className="text-[10px] px-2 py-0.5 rounded bg-gray-800 text-gray-400 border border-gray-700">
+                        <span
+                          key={t}
+                          className="text-[10px] px-2 py-0.5 rounded bg-gray-800 text-gray-400 border border-gray-700"
+                        >
                           {t}
                         </span>
                       ))}
                     </div>
-                    <ExternalLink className="w-3.5 h-3.5 text-gray-600 group-hover:text-blue-400 transition-colors" />
+                    <ExternalLink className="w-3.5 h-3.5 text-gray-600 group-hover:text-blue-400 transition-colors shrink-0" />
                   </div>
                 </div>
               </div>
@@ -192,7 +200,8 @@ export function PortfolioCarousel() {
           ))}
         </div>
 
-        <div className="flex items-center gap-2 justify-center">
+        {/* Dots */}
+        <div className="flex items-center gap-2 justify-center flex-wrap">
           {projects.map((_, i) => (
             <button
               key={i}
