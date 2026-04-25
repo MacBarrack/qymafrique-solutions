@@ -53,21 +53,16 @@ export function HeroNew() {
 
   return (
     <section className="min-h-screen bg-gray-50 flex items-center pt-20 pb-16 px-4 overflow-hidden">
-      <div className="w-full max-w-3xl mx-auto">
+      <div className="w-full max-w-5xl mx-auto">
         <div className={`transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
 
           {/* ── TWO CARDS ── */}
           <div className="flex flex-col lg:flex-row gap-3">
 
             {/* ── CARD 1 — Hero content ── */}
-            <div className="flex-1 bg-white border border-gray-200 rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-sm">
+            <div className="flex-1 bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm">
               <div>
-                <span className="inline-flex items-center gap-2 text-xs font-semibold text-gray-500 uppercase tracking-widest mb-8">
-                  <span className="w-4 h-px bg-gray-400" />
-                  Digital Studio — Nairobi
-                </span>
-
-                <h1 className="text-5xl sm:text-6xl font-black text-black leading-[1.0] tracking-tight">
+                <h1 className="text-4xl sm:text-5xl font-black text-black leading-[1.0] tracking-tight">
                   We Build
                   <br />
                   <span className="text-blue-600">Digital</span>
@@ -91,12 +86,12 @@ export function HeroNew() {
                 </h1>
               </div>
 
-              <div className="mt-10">
-                <p className="text-base text-gray-500 max-w-sm leading-relaxed mb-8">
+              <div className="mt-6">
+                <p className="text-base text-gray-500 max-w-sm leading-relaxed mb-6">
                   Enterprise-grade web, mobile, and digital solutions built for African businesses and beyond.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-3 mb-10">
+                <div className="flex flex-wrap items-center gap-3 mb-6">
                   <Link href="/quote">
                     <span className="inline-flex items-center gap-2 px-6 py-3 bg-black hover:bg-gray-900 text-white text-sm font-bold rounded-2xl transition-colors">
                       <Zap className="w-4 h-4" />
