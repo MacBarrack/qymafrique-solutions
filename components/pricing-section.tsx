@@ -1,141 +1,121 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Check } from "lucide-react"
 import Link from "next/link"
+import { Check, ArrowRight } from "lucide-react"
 
-const pricingPlans = [
+const plans = [
   {
     name: "Static Website",
-    description: "A professional static website perfect for showcasing your business.",
     price: "KES 25,000",
-    priceNote: "starting at",
+    description: "Perfect for showcasing your business with a clean, professional online presence.",
     features: ["Up to 5 pages", "Responsive design", "Contact form", "Basic SEO", "Fast loading", "1 month support"],
+    cta: "Get Started",
+    featured: false,
   },
   {
     name: "Business Website",
-    description: "A dynamic website with content management for growing businesses.",
     price: "KES 40,000",
-    priceNote: "starting at",
-    features: [
-      "Up to 10 pages",
-      "Custom design",
-      "CMS integration",
-      "Advanced SEO",
-      "Analytics setup",
-      "3 months support",
-    ],
+    description: "Dynamic website with content management for growing businesses.",
+    features: ["Up to 10 pages", "Custom design", "CMS integration", "Advanced SEO", "Analytics setup", "3 months support"],
+    cta: "Most Popular",
     featured: true,
   },
   {
-    name: "Web Application",
-    description: "Full-featured web applications with custom functionality.",
-    price: "KES 150,000",
-    priceNote: "starting at",
-    features: [
-      "Custom features",
-      "User authentication",
-      "Database integration",
-      "API development",
-      "Admin dashboard",
-      "6 months support",
-    ],
+    name: "E-Commerce",
+    price: "KES 120,000",
+    description: "Complete online store with payment integration and inventory management.",
+    features: ["Product catalog", "Shopping cart", "M-Pesa integration", "Order management", "Customer accounts", "Inventory system"],
+    cta: "Get Started",
+    featured: false,
   },
   {
-    name: "E-Commerce",
-    description: "Complete online store with payment integration and inventory management.",
-    price: "KES 120,000",
-    priceNote: "starting at",
-    features: [
-      "Product catalog",
-      "Shopping cart",
-      "M-Pesa integration",
-      "Order management",
-      "Customer accounts",
-      "Inventory system",
-    ],
+    name: "Web Application",
+    price: "KES 150,000",
+    description: "Full-featured web apps with custom functionality and databases.",
+    features: ["Custom features", "User authentication", "Database integration", "API development", "Admin dashboard", "6 months support"],
+    cta: "Get Started",
+    featured: false,
   },
 ]
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="py-24 md:py-32 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <div className="inline-block px-3 py-1 mb-4 text-sm font-medium bg-primary/10 text-primary rounded-full">
-            Transparent Pricing
+    <section id="pricing" className="bg-white py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div>
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">Pricing</span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
+              Transparent<br />Pricing
+            </h2>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4 text-balance">
-            Investment in Your Success
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Clear, competitive pricing for quality digital solutions. All prices are estimates and may vary based on
-            project complexity and requirements.
+          <p className="md:max-w-xs text-gray-500 text-sm leading-relaxed">
+            Clear, competitive pricing for quality digital solutions. All prices are estimates — final pricing is confirmed after consultation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {pricingPlans.map((plan) => (
-            <Card
-              key={plan.name}
-              className={`relative ${
-                plan.featured
-                  ? "border-primary shadow-lg scale-105"
-                  : "border-border/50 hover:border-border transition-all duration-300"
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {plans.map((p) => (
+            <div
+              key={p.name}
+              className={`rounded-3xl p-6 flex flex-col gap-5 transition-all duration-200 ${
+                p.featured
+                  ? "bg-black text-white ring-2 ring-blue-600 ring-offset-2"
+                  : "bg-gray-50 border border-gray-200 hover:border-gray-300"
               }`}
             >
-              {plan.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full">
-                  Most Popular
-                </div>
-              )}
-              <CardHeader>
-                <CardTitle className="text-xl">{plan.name}</CardTitle>
-                <p className="text-sm text-muted-foreground mt-2">{plan.description}</p>
-                <div className="mt-4">
-                  <span className="text-sm text-muted-foreground">{plan.priceNote}</span>
-                  <div className="text-3xl font-bold text-foreground mt-1">{plan.price}</div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 mb-6">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className="w-full" variant={plan.featured ? "default" : "outline"} asChild>
-                  <Link href="#contact">Get Started</Link>
-                </Button>
-              </CardContent>
-            </Card>
+              <div>
+                <p className={`text-[10px] font-bold uppercase tracking-widest mb-2 ${p.featured ? "text-blue-400" : "text-gray-400"}`}>
+                  {p.featured ? "★ Most Popular" : p.name}
+                </p>
+                {p.featured && <p className="text-sm font-bold text-white mb-1">{p.name}</p>}
+                <p className={`text-2xl font-black ${p.featured ? "text-white" : "text-black"}`}>{p.price}</p>
+                <p className={`text-[10px] mt-0.5 ${p.featured ? "text-gray-400" : "text-gray-400"}`}>starting at</p>
+              </div>
+
+              <p className={`text-xs leading-relaxed ${p.featured ? "text-gray-400" : "text-gray-500"}`}>
+                {p.description}
+              </p>
+
+              <ul className="space-y-2 flex-1">
+                {p.features.map(f => (
+                  <li key={f} className="flex items-start gap-2">
+                    <Check className={`w-3.5 h-3.5 mt-0.5 shrink-0 ${p.featured ? "text-blue-400" : "text-blue-600"}`} />
+                    <span className={`text-xs ${p.featured ? "text-gray-300" : "text-gray-600"}`}>{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Link href="/quote">
+                <span className={`flex items-center justify-center gap-2 py-3 rounded-2xl text-xs font-bold transition-colors ${
+                  p.featured
+                    ? "bg-blue-600 hover:bg-blue-500 text-white"
+                    : "bg-white border border-gray-200 hover:border-gray-400 text-black"
+                }`}>
+                  Get Started
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </Link>
+            </div>
           ))}
         </div>
 
-        <Card className="bg-muted/50 border-border/50">
-          <CardContent className="p-6">
-            <div className="flex items-start gap-4">
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-foreground mb-2">Need Something Custom?</h3>
-                <p className="text-muted-foreground">
-                  We also offer print & packaging design, custom integrations, and ongoing maintenance packages. Contact
-                  us for a personalized quote tailored to your specific needs.
-                </p>
-              </div>
-              <Button asChild>
-                <Link href="tel:+254717687202">Call Us</Link>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-
-        <div className="mt-8 text-center text-sm text-muted-foreground">
-          <p>
-            * All prices are estimates in Kenyan Shillings and may vary based on project scope, complexity, and specific
-            requirements. Final pricing will be provided after consultation.
-          </p>
+        <div className="bg-gray-50 border border-gray-200 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+          <div>
+            <h3 className="text-lg font-black text-black">Need Something Custom?</h3>
+            <p className="text-sm text-gray-500 mt-1 max-w-lg leading-relaxed">
+              We also offer print & packaging design, custom integrations, and ongoing maintenance packages. Contact us for a personalized quote.
+            </p>
+          </div>
+          <a href="tel:+254717687202">
+            <span className="whitespace-nowrap inline-flex items-center gap-2 px-5 py-3 bg-black hover:bg-gray-900 text-white text-xs font-bold rounded-2xl transition-colors">
+              Call Us Now
+            </span>
+          </a>
         </div>
+
+        <p className="mt-6 text-center text-xs text-gray-400">
+          All prices in Kenyan Shillings. Final pricing confirmed after project scope consultation.
+        </p>
       </div>
     </section>
   )

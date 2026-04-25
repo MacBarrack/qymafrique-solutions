@@ -1,7 +1,4 @@
 import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { ExternalLink } from "lucide-react"
 
 interface Project {
@@ -15,59 +12,52 @@ interface Project {
   liveUrl?: string
 }
 
-interface ProjectCardProps {
-  project: Project
-}
-
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="group overflow-hidden border-border/50 hover:border-primary transition-all duration-500 hover:shadow-2xl h-full flex flex-col animate-fade-in hover:scale-105 hover:-translate-y-2">
-      <div className="relative aspect-square overflow-hidden bg-muted">
+    <div className="group border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-400 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 flex flex-col bg-white">
+      <div className="relative aspect-video overflow-hidden bg-gray-100">
         <Image
           src={project.image || "/placeholder.svg"}
           alt={project.title}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
       </div>
 
-      <CardContent className="p-3 flex-1 flex flex-col justify-between">
-        <div>
-          <div className="flex items-center justify-between mb-1.5">
-            <span className="text-xs font-medium text-primary uppercase tracking-wider">{project.category}</span>
-            <span className="text-xs text-muted-foreground">{project.year}</span>
-          </div>
+      <div className="p-5 flex flex-col gap-3 flex-1">
+        <div className="flex items-center justify-between">
+          <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider">{project.category}</span>
+          <span className="text-[10px] text-gray-400">{project.year}</span>
+        </div>
 
-          <h3 className="text-base font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors line-clamp-1">
+        <div>
+          <h3 className="text-sm font-bold text-black group-hover:text-blue-600 transition-colors line-clamp-1">
             {project.title}
           </h3>
+          <p className="text-xs text-gray-500 mt-1.5 leading-relaxed line-clamp-2">{project.description}</p>
+        </div>
 
-          <p className="text-xs text-muted-foreground mb-2.5 leading-relaxed line-clamp-2">{project.description}</p>
-
-          <div className="flex flex-wrap gap-1">
-            {project.tags.slice(0, 2).map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-xs">
-                {tag}
-              </Badge>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-1.5">
+          {project.tags.slice(0, 2).map(tag => (
+            <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 font-medium">
+              {tag}
+            </span>
+          ))}
         </div>
 
         {project.liveUrl && (
-          <Button asChild variant="outline" size="sm" className="w-full bg-transparent mt-2.5 group-hover:bg-primary group-hover:text-white transition-all duration-300 h-8 text-xs">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2"
-            >
-              <ExternalLink className="h-3 w-3" />
-              View
-            </a>
-          </Button>
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-auto flex items-center justify-between pt-3 border-t border-gray-100 text-xs font-semibold text-gray-600 hover:text-blue-600 transition-colors"
+          >
+            View Project
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }

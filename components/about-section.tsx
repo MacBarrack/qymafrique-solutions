@@ -1,74 +1,95 @@
+const pillars = [
+  {
+    icon: "🚀",
+    title: "Growth Focused",
+    desc: "We don't just build — we build for results. Every solution is designed to help your business grow and scale.",
+  },
+  {
+    icon: "💡",
+    title: "Innovation First",
+    desc: "We stay on top of the latest technologies and trends, bringing fresh ideas to every project.",
+  },
+  {
+    icon: "🤝",
+    title: "True Partnership",
+    desc: "We become invested in your success, working closely with you from discovery to launch.",
+  },
+  {
+    icon: "✨",
+    title: "Quality Crafted",
+    desc: "Every detail matters. We deliver polished, production-ready solutions you can be proud of.",
+  },
+]
+
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-100 rounded-full border border-sky-300 mb-6">
-            <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-blue-900">About Us</span>
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">
-            Building Digital Solutions That Matter
-          </h2>
+    <section id="about" className="bg-white py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="space-y-8 leading-relaxed">
-            <p className="text-lg text-gray-600">
-              Based in Nairobi, Kenya, Qymafrique Solutions builds beautiful, functional digital experiences for businesses across Africa and beyond. We believe great design and technology should work together seamlessly.
-            </p>
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Approach</h3>
-              <p className="text-gray-700">
-                We combine strategic thinking with technical expertise and creative design. Every project starts with understanding your goals and your audience, then we build solutions that deliver real results.
+          <div>
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">About Us</span>
+            <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-black text-black leading-tight tracking-tight">
+              Building Digital<br />Solutions<br />That Matter
+            </h2>
+
+            <div className="mt-8 space-y-5 text-gray-500 leading-relaxed">
+              <p>
+                Based in Nairobi, Kenya, Qymafrique Solutions builds beautiful, functional digital experiences for businesses across Africa and beyond. We believe great design and technology should work together seamlessly.
               </p>
-              <p className="mt-4 text-gray-700">
-                Whether you&apos;re a startup with a big vision or an established business ready to innovate, we partner with you every step of the way.
+              <p>
+                We combine strategic thinking with technical expertise and creative design. Every project starts with understanding your goals and your audience — then we build solutions that deliver real results.
+              </p>
+              <p>
+                Whether you're a startup with a big vision or an established business ready to innovate, we partner with you every step of the way.
               </p>
             </div>
 
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-sky-300 transition-all duration-300 group shadow-sm hover:shadow-md">
-                  <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-sky-200 transition-colors">
-                    <span className="text-2xl">🚀</span>
-                  </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Growth Focused</h4>
-                  <p className="text-gray-600">
-                    We don&apos;t just build—we build for results. Every solution is designed to help your business grow and scale.
-                  </p>
+            <div className="mt-10 grid grid-cols-3 gap-6 pt-10 border-t border-gray-100">
+              {[
+                { n: "50+", l: "Projects Delivered" },
+                { n: "30+", l: "Happy Clients" },
+                { n: "4+", l: "Years Experience" },
+              ].map(({ n, l }) => (
+                <div key={l}>
+                  <p className="text-3xl font-black text-black">{n}</p>
+                  <p className="text-xs text-gray-400 mt-1 leading-tight">{l}</p>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-sky-300 transition-all duration-300 group shadow-sm hover:shadow-md">
-                  <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-sky-200 transition-colors">
-                    <span className="text-2xl">💡</span>
+          <div>
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Why Choose Us</p>
+            <div className="space-y-3">
+              {pillars.map(({ icon, title, desc }) => (
+                <div
+                  key={title}
+                  className="group flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-200"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-gray-50 group-hover:bg-blue-100 transition-colors flex items-center justify-center shrink-0 text-lg">
+                    {icon}
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Innovation First</h4>
-                  <p className="text-gray-600">
-                    We stay on top of latest technologies and trends to bring fresh ideas to your projects.
-                  </p>
+                  <div>
+                    <h4 className="text-sm font-bold text-black">{title}</h4>
+                    <p className="text-xs text-gray-500 mt-1 leading-relaxed">{desc}</p>
+                  </div>
                 </div>
+              ))}
+            </div>
 
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-sky-300 transition-all duration-300 group shadow-sm hover:shadow-md">
-                  <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-sky-200 transition-colors">
-                    <span className="text-2xl">🤝</span>
-                  </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">True Partnership</h4>
-                  <p className="text-gray-600">
-                    We become invested in your success, working closely with you from start to finish.
-                  </p>
-                </div>
-
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-sky-300 transition-all duration-300 group shadow-sm hover:shadow-md">
-                  <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-sky-200 transition-colors">
-                    <span className="text-2xl">✨</span>
-                  </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Quality Crafted</h4>
-                  <p className="text-gray-600">
-                    Every detail matters. We deliver polished, production-ready solutions you can be proud of.
-                  </p>
-                </div>
+            <div className="mt-6 bg-gray-950 rounded-2xl p-6 text-white">
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Our Mission</p>
+              <p className="text-sm leading-relaxed text-gray-300">
+                To bridge the digital divide in Africa by delivering world-class technology solutions that empower businesses, communities, and individuals to thrive in the modern economy.
+              </p>
+              <div className="mt-4 flex items-center gap-2">
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute h-2 w-2 rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative rounded-full h-2 w-2 bg-emerald-400" />
+                </span>
+                <span className="text-xs text-emerald-400 font-semibold">Currently accepting new projects</span>
               </div>
             </div>
           </div>
