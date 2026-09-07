@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink, ArrowRight } from "lucide-react"
 
@@ -10,8 +9,7 @@ const portfolioProjects = [
     title: "Otieno Justus & Co Advocates",
     category: "Legal Services",
     description: "Professional legal representation with integrity. Comprehensive counsel for individuals and businesses.",
-    image: "/portfolio-otieno.jpg",
-    url: "https://www.otienojustuscoadvocates.com/",
+    url: "https://justus-otieno.vercel.app/",
     tags: ["Legal", "Professional", "Web"],
     accent: "bg-blue-600",
   },
@@ -20,8 +18,7 @@ const portfolioProjects = [
     title: "Twin Compass Tours",
     category: "Travel & Tourism",
     description: "Premium East African safari adventures. Explore Maasai Mara, Serengeti, and more.",
-    image: "/real-twin-compass.jpg",
-    url: "https://www.twincompasstours.com/",
+    url: "https://twinapp.vercel.app/",
     tags: ["Tourism", "Safari", "Booking"],
     accent: "bg-amber-500",
   },
@@ -30,8 +27,7 @@ const portfolioProjects = [
     title: "Le Jardin de Den Daycare",
     category: "Education",
     description: "Premier childcare for ages 6 weeks to 12 years. Safe, loving, nurturing environment.",
-    image: "/real-daycare.jpg",
-    url: "https://www.lejardindedendaycare.com/",
+    url: "https://le-jardin-brown.vercel.app/",
     tags: ["Education", "Childcare", "Services"],
     accent: "bg-emerald-500",
   },
@@ -40,18 +36,16 @@ const portfolioProjects = [
     title: "Africa Sojourners of Hope",
     category: "Non-Profit",
     description: "Transforming vulnerable children and communities through education, health, and mentorship.",
-    image: "/real-asoh.jpg",
     url: "https://www.africasojournersofhope.org/",
     tags: ["Non-Profit", "Education", "Impact"],
     accent: "bg-red-500",
-    noImage: true,
+    noEmbed: true,
   },
   {
     id: 5,
     title: "Evuptiki",
     category: "In-House Project",
     description: "Discover and book events. Live the moment with concerts, sports, festivals, and tech talks.",
-    image: "/portfolio-evuptiki.jpg",
     url: "https://evuptiki.vercel.app",
     tags: ["Events", "Ticketing", "Platform"],
     accent: "bg-violet-600",
@@ -61,7 +55,6 @@ const portfolioProjects = [
     title: "Nitibu Healthcare",
     category: "Healthcare",
     description: "Comprehensive healthcare platform delivering quality medical solutions across East Africa.",
-    image: "/portfolio-nitibu.jpg",
     url: "https://www.nitibuhealthcare.com/",
     tags: ["Healthcare", "Medical", "Telemedicine"],
     accent: "bg-cyan-600",
@@ -71,7 +64,6 @@ const portfolioProjects = [
     title: "World Concepts Ventures",
     category: "Investment",
     description: "Pioneering African innovation. Driving economic growth across East and Central Africa.",
-    image: "/portfolio-worldconcepts.jpg",
     url: "https://www.worldconcepts.co.ke/",
     tags: ["Investment", "Finance", "Ventures"],
     accent: "bg-slate-600",
@@ -81,22 +73,48 @@ const portfolioProjects = [
     title: "EMS-GS",
     category: "Enterprise System",
     description: "Employee management system. Streamline workforce operations, track attendance, manage payroll.",
-    image: "/portfolio-ems.jpg",
     url: "https://ems-gs.vercel.app",
     tags: ["Enterprise", "HR", "Analytics"],
     accent: "bg-indigo-600",
   },
   {
     id: 9,
-    title: "QuickCart",
-    category: "E-Commerce",
-    description: "Fast and intuitive shopping platform. Seamless checkout and inventory management.",
-    image: "/portfolio-quickcart.jpg",
-    url: "https://quickcart.greatstack.in/",
-    tags: ["E-Commerce", "Shopping", "Platform"],
+    title: "Destiny",
+    category: "Web Platform",
+    description: "A modern, fast web platform built to deliver a smooth end-to-end user experience.",
+    url: "https://destiny-orcin.vercel.app/",
+    tags: ["Platform", "Web"],
     accent: "bg-rose-600",
   },
 ]
+
+function LandingPagePreview({ url, title, accent }: { url: string; title: string; accent: string }) {
+  return (
+    <div className="relative w-full h-full overflow-hidden bg-gray-100">
+      {/* Live scaled-down preview of the actual landing page */}
+      <div
+        className="absolute top-0 left-0 origin-top-left pointer-events-none"
+        style={{
+          width: "400%",
+          height: "400%",
+          transform: "scale(0.25)",
+        }}
+      >
+        <iframe
+          src={url}
+          title={`${title} landing page preview`}
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin"
+          className="w-full h-full border-0"
+        />
+      </div>
+      {/* Fallback label shown underneath in case the site blocks embedding */}
+      <div className={`absolute inset-0 -z-10 ${accent} flex items-center justify-center`}>
+        <span className="text-white/80 text-xs font-bold px-3 text-center">{title}</span>
+      </div>
+    </div>
+  )
+}
 
 export function PortfolioShowcase() {
   return (
@@ -124,7 +142,7 @@ export function PortfolioShowcase() {
             >
               <div className="border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-400 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 h-full flex flex-col bg-white">
                 <div className="relative h-44 sm:h-48 overflow-hidden bg-gray-100">
-                  {p.noImage ? (
+                  {p.noEmbed ? (
                     <div className={`w-full h-full ${p.accent} flex items-center justify-center`}>
                       <div className="text-center">
                         <span className="text-4xl font-black text-white block">ASOH</span>
@@ -132,12 +150,7 @@ export function PortfolioShowcase() {
                       </div>
                     </div>
                   ) : (
-                    <Image
-                      src={p.image}
-                      alt={p.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    <LandingPagePreview url={p.url} title={p.title} accent={p.accent} />
                   )}
                 </div>
 
