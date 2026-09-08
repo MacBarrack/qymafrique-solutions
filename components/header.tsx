@@ -145,15 +145,7 @@ export function Header() {
             }}
           >
             <Link href="/" className="shrink-0">
-              <span
-                className="block"
-                style={{
-                  filter:
-                    "brightness(0) saturate(100%) invert(13%) sepia(50%) saturate(900%) hue-rotate(200deg) brightness(80%)",
-                }}
-              >
-                <QLogo />
-              </span>
+              <QLogo />
             </Link>
 
             <nav className="flex items-center gap-0.5">

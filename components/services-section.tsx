@@ -39,7 +39,7 @@ const services = [
     description:
       "The internet is noisy — but your customers are in there. We find them and start conversations that matter through authentic, data-driven strategies.",
     examples: [
-      { name: "Otieno Justus & Co", url: "https://justusapp.vercel.app" },
+      { name: "Otieno Justus & Co", url: "https://justus-otieno.vercel.app/" },
       { name: "Nitibu Healthcare",  url: "https://nitibuhealthcare.com" },
     ],
   },

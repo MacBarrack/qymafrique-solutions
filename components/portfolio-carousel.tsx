@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink, ArrowRight } from "lucide-react"
 
@@ -33,6 +32,7 @@ const projects = [
     description: "Premier childcare for ages 6 weeks to 12 years. Safe, loving, nurturing environment.",
     image: "/real-daycare.jpg",
     url: "https://le-jardin-brown.vercel.app/",
+    previewImage: "https://image.thum.io/get/width/1200/crop/700/noanimate/https://le-jardin-brown.vercel.app/",
     tags: ["Education", "Childcare", "Services"],
     accent: "bg-emerald-500",
   },
@@ -89,12 +89,12 @@ const projects = [
   },
   {
     id: 9,
-    title: "Destiny",
-    category: "Web Platform",
-    description: "A modern, fast web platform built to deliver a smooth end-to-end user experience.",
-    image: "/portfolio-destiny.jpg",
+    title: "Destiny Gadgets",
+    category: "E-Commerce",
+    description: "Fast and intuitive shopping platform. Seamless checkout and inventory management.",
+    image: "/portfolio-quickcart.jpg",
     url: "https://destiny-orcin.vercel.app/",
-    tags: ["Platform", "Web"],
+    tags: ["E-Commerce", "Shopping", "Platform"],
     accent: "bg-rose-600",
   },
 ]
@@ -151,16 +151,19 @@ export function PortfolioCarousel() {
             >
               <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-600 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                 <div className="relative h-44 sm:h-48 overflow-hidden bg-gray-800">
-                  {p.noImage ? (
-                    <div className={`w-full h-full ${p.accent} flex items-center justify-center`}>
-                      <span className="text-4xl font-black text-white">ASOH</span>
-                    </div>
+                  {p.previewImage ? (
+                    <img
+                      src={p.previewImage}
+                      alt={`${p.title} landing page`}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top"
+                    />
                   ) : (
-                    <Image
-                      src={p.image}
-                      alt={p.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    <iframe
+                      src={p.url}
+                      title={`${p.title} landing page`}
+                      loading="lazy"
+                      className="pointer-events-none h-full w-full border-0 bg-white"
                     />
                   )}
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />

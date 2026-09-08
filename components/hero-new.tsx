@@ -13,15 +13,15 @@ const clients = [
 ]
 
 const projects = [
-  { name: "Otieno Justus & Co Advocates", category: "Legal Services",    url: "https://www.otienojustuscoadvocates.com/", color: "bg-violet-600" },
-  { name: "Twin Compass Tours",           category: "Travel & Tourism",  url: "https://www.twincompasstours.com/",         color: "bg-emerald-600" },
-  { name: "Le Jardin de Den Daycare",     category: "Education",         url: "https://www.lejardindedendaycare.com/",     color: "bg-pink-600" },
+  { name: "Otieno Justus & Co Advocates", category: "Legal Services",    url: "https://justus-otieno.vercel.app/", color: "bg-violet-600" },
+  { name: "Twin Compass Tours",           category: "Travel & Tourism",  url: "https://twinapp.vercel.app/",         color: "bg-emerald-600" },
+  { name: "Le Jardin de Den Daycare",     category: "Education",         url: "https://le-jardin-brown.vercel.app/",     color: "bg-pink-600" },
   { name: "Africa Sojourners of Hope",    category: "Non-Profit",        url: "https://www.africasojournersofhope.org/",   color: "bg-amber-600" },
   { name: "Evuptiki",                     category: "In-House · Events", url: "https://evuptiki.vercel.app/",              color: "bg-indigo-600" },
   { name: "Nitibu Healthcare",            category: "Healthcare",        url: "https://www.nitibuhealthcare.com/",         color: "bg-blue-600" },
   { name: "World Concepts Ventures",      category: "Investment",        url: "https://www.worldconcepts.co.ke/",          color: "bg-yellow-600" },
   { name: "EMS-GS",                       category: "Enterprise System", url: "https://ems-gs.vercel.app/",                color: "bg-purple-600" },
-  { name: "QuickCart",                    category: "E-Commerce",        url: "https://quickcart.greatstack.in/",          color: "bg-red-600" },
+  { name: "Destiny Gadgets",              category: "E-Commerce",        url: "https://destiny-orcin.vercel.app/",          color: "bg-red-600" },
 ]
 
 export function HeroNew() {

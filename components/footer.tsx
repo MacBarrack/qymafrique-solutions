@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Mail, MapPin, MessageCircle, ArrowUpRight, Zap } from "lucide-react"
+import { QLogo } from "@/components/q-logo"
 
 const nav = [
   { href: "/portfolio", label: "Work" },
@@ -26,10 +27,9 @@ export function Footer() {
 
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-block mb-4">
+            <Link href="/" className="inline-flex items-center gap-3 mb-4">
+              <QLogo className="h-14 w-14" />
               <span className="text-xl font-black text-white">Qymafrique</span>
-              <br />
-              <span className="text-sm text-gray-500 font-medium">Solutions</span>
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
               Crafting digital products that perform — clean code, sharp design, real results.

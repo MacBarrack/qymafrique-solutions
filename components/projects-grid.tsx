@@ -19,7 +19,7 @@ const projects = [
     image: "/otieno-justus-advocates.jpg",
     tags: ["Legal", "Consultation", "Corporate Law"],
     year: "2024",
-    liveUrl: "https://justusapp.vercel.app",
+    liveUrl: "https://justus-otieno.vercel.app/",
   },
   {
     id: 3,

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Professional web development, mobile apps, and digital solutions. Building beautiful, functional digital experiences for businesses across Africa.",
   icons: {
-    icon: "/favicon.jpg",
+    icon: "/qymafrIQue-profile-Q.png",
   },
 }
 
